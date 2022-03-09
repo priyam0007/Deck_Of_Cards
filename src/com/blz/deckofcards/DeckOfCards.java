@@ -12,13 +12,14 @@
 package com.blz.deckofcards;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DeckOfCards {
-
+	public static final Scanner scanner = new Scanner(System.in);
 	public ArrayList<String> cardsDeck = new ArrayList<String>();
 
 	/*
-	 * @purpose : initializing the 52 DeckOfCards to suits and ranks
+	 * @purpose : initializing the 52 DeckOfCards thourgh suits and ranks
 	 */
 	public void deckofCards() {
 		String[] suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
@@ -44,10 +45,24 @@ public class DeckOfCards {
 		System.out.println();
 	}
 
+	/*
+	 * @purpose: we need to have more than 2 players and Max 4 Players
+	 */
+	public void noOfPlayers() {
+		System.out.print("\nEnter number of players minimum 2 , maximum 4 : ");
+		int player = scanner.nextInt();
+		if (player >= 2 && player <= 4) {
+			System.out.println("\n" + player + " players will play the game");
+		} else {
+			System.out.println("Please enter number of players in the Range");
+		}
+		scanner.close();
+	}
+
 	public static void main(String[] args) {
 
 		DeckOfCards deckofCards = new DeckOfCards();
 		deckofCards.deckofCards();
-
+		deckofCards.noOfPlayers();
 	}
 }
