@@ -8,8 +8,10 @@
  * 2. Expected to have OOPs
  * 3. Expected to have Data Structures
  *
- * UC4 : Each time we distribute the cards with the Player, Condition is that we shuffle the
- *  cards. Make a function to shuffle the cards.       
+ * 
+ * UC5 : Based on the Players sequence the cards needs to be distributed. 
+ *       Create a function to distribute and making sure the distributed is in order.
+ *       The Player should receive all 9 cards each.
  */
 
 package com.blz.deckofcards;
@@ -88,7 +90,23 @@ public class DeckOfCards {
 		}
 		cardsDeck = temp;
 		toDisplay(cardsDeck);
+		cardDistribution(cardsDeck, player);
 		return cardsDeck;
+	}
+
+	/*
+	 * @purpose:Player should receive all 9 cards each
+	 */
+	public static void cardDistribution(ArrayList<String> cardsDeck, int player) {
+
+		for (int i = 0; i < player; i++) {
+			System.out.print("\nPlayer " + (i + 1) + " got cards:\n");
+
+			for (int j = 0; j < 9; j++) {
+				System.out.print("\t" + cardsDeck.get(i + j * player));
+			}
+		}
+		System.out.println();
 	}
 
 	public static void main(String[] args) {
