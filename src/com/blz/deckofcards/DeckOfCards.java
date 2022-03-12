@@ -5,9 +5,7 @@
  * 2. Expected to have OOPs
  * 3. Expected to have Data Structures
  *
- *UC1 : Setup the initial game with deck of cards and make sure we have unique cards, 
- *The number of cards are 52. Should be able to make unique deck. Maintain the ranks to further compare
- */
+ * UC2 : Moving forward we need to have more than 2 players and Max 4 Players, Create Players Class to add Players from console.
 
 package com.blz.deckofcards;
 
