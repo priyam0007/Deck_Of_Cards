@@ -1,20 +1,25 @@
 /*
- * Write a Program to initialize deck of cards having suit ("Clubs", "Diamonds", "Hearts", "Spades") & Rank ("2", "3", "4", "5", "6", "7", "8", "9", "10","Jack", "Queen", "King", "Ace"). Shuffle the cards using Random method and then distribute 9 Cards to 4 Players and Print the Cards thereceived by the 4 Players.
+ * Write a Program to initialize deck of cards having suit("Clubs","Diamonds","Hearts","Spades")
+ * & Rank ("2", "3", "4", "5", "6", "7", "8", "9", "10","Jack", "Queen", "King", "Ace"). 
+ * Shuffle the cards using Random method and then distribute 9 Cards to 4 Players and Print 
+ * the Cards thereceived by the 4 Players.
  *
  * 1. Ability to work with GIT
  * 2. Expected to have OOPs
  * 3. Expected to have Data Structures
  *
- *UC1 : Setup the initial game with deck of cards and make sure we have unique cards, 
- *The number of cards are 52. Should be able to make unique deck. Maintain the ranks to further compare
- */
+ * UC3 : Add the method to sequence the Players order and how they should receive 
+ *       the cards and further order for play. 
+*/
 
 package com.blz.deckofcards;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DeckOfCards {
 
+	public static final Scanner scanner = new Scanner(System.in);
 	public ArrayList<String> cardsDeck = new ArrayList<String>();
 
 	/*
@@ -44,10 +49,33 @@ public class DeckOfCards {
 		System.out.println();
 	}
 
+	/*
+	 * @purpose : we need to have more than 2 players and Max 4 Players
+	 */
+	public void noOfPlayers() {
+		System.out.print("\nEnter number of players minimum 2 , maximum 4 : ");
+		int player = scanner.nextInt();
+		if (player >= 2 && player <= 4) {
+			System.out.println("\n" + player + " players will play the game");
+			sequenceOfPlay(player);
+		} else {
+			System.out.println("Please enter number of players in the Range");
+			noOfPlayers();
+		}
+		scanner.close();
+	}
+
+	/*
+	 * @purpose: Add the method to sequence the Players
+	 */
+	public void sequenceOfPlay(int player) {
+		System.out.println("\nSequence of cards are below : ");
+	}
+
 	public static void main(String[] args) {
 
 		DeckOfCards deckofCards = new DeckOfCards();
 		deckofCards.deckofCards();
-
+		deckofCards.noOfPlayers();
 	}
 }
